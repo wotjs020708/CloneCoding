@@ -8,6 +8,14 @@
 import UIKit
 
 class MyViewController: UIViewController {
+    // MARK: - 스크롤 뷰
+    let scrollView: UIScrollView = {
+      let scrollView = UIScrollView()
+        scrollView.backgroundColor = .gray
+      scrollView.translatesAutoresizingMaskIntoConstraints = false
+      return scrollView
+    }()
+    
     // MARK: - 플러스 버튼
     private let plusBarButtonItem: UIBarButtonItem  = {
         let buttonAction = UIAction{ _ in print("plus")}
@@ -135,6 +143,9 @@ class MyViewController: UIViewController {
         stackView.spacing = 30
         stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 30)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        
         stackView.alignment = .center
         return stackView
     }()
@@ -178,6 +189,7 @@ class MyViewController: UIViewController {
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layer.cornerRadius = 10
+        
         return stackView
     }()
     
@@ -193,17 +205,17 @@ class MyViewController: UIViewController {
     }
     
     func viewSetUp() {
+        
+        self.view.addSubview(scrollView)
         self.navigationItem.leftBarButtonItem = self.idBarButtonItem
         self.navigationItem.rightBarButtonItems = [line3BarButtonItem,plusBarButtonItem]
         
-    
-        view.addSubview(topHorizontalStackView)
-//        self.view.addSubview(myImageView)
-//        self.view.addSubview(nameLabel)
-//        self.view.addSubview(postStackView)
-//        self.view.addSubview(followersStackView)
-//        self.view.addSubview(followingStackView)
-//        self.view.addSubview(professionalDashboardStackView)
+        
+        self.scrollView.addSubview(topHorizontalStackView)
+
+        self.scrollView.addSubview(nameLabel)
+
+        self.scrollView.addSubview(professionalDashboardStackView)
         
         
         let safeArea = self.view.safeAreaLayoutGuide
@@ -211,38 +223,28 @@ class MyViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            
+            
             self.myImageView.widthAnchor.constraint(equalToConstant: 100),
             self.myImageView.heightAnchor.constraint(equalToConstant: 100),
-            topHorizontalStackView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            topHorizontalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  10),
-            topHorizontalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            topHorizontalStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            topHorizontalStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            topHorizontalStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
-//             MARK: - myImageView
-//            myImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,constant: 20),
-//            myImageView.topAnchor.constraint(equalTo: safeArea.topAnchor,constant: 10),
-//            myImageView.widthAnchor.constraint(equalToConstant: 100),
-//            myImageView.heightAnchor.constraint(equalToConstant: 100),
-//            
-//            // MARK: - nameLAbel
-//            nameLabel.leadingAnchor.constraint(equalTo: myImageView.leadingAnchor),
-//            nameLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor,constant: 10),
-//            
-//            // MARK: - poststackView
-//            postStackView.leadingAnchor.constraint(equalTo: myImageView.trailingAnchor, constant: 40),
-//            postStackView.centerYAnchor.constraint(equalTo: myImageView.centerYAnchor),
-//            
-//            // MARK: - followersStackView
-//            followersStackView.leadingAnchor.constraint(equalTo: postStackView.trailingAnchor, constant: 40),
-//            followersStackView.centerYAnchor.constraint(equalTo: myImageView.centerYAnchor),
-//            
-//            // MARK: - followingStackView
-//            followingStackView.leadingAnchor.constraint(equalTo: followersStackView.trailingAnchor, constant: 40),
-//            followingStackView.centerYAnchor.constraint(equalTo: myImageView.centerYAnchor),
-//            
-//            // MARK: - professionalDashboardStackView
-//            professionalDashboardStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
-//            professionalDashboardStackView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-//            professionalDashboardStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20)
+
+            // MARK: - nameLAbel
+            nameLabel.leadingAnchor.constraint(equalTo: myImageView.leadingAnchor),
+            nameLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor,constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+              
+            // MARK: - professionalDashboardStackView
+            professionalDashboardStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            professionalDashboardStackView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            professionalDashboardStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20)
         ])
     }
     
