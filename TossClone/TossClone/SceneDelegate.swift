@@ -21,7 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let homeViewController = HomeViewController()
         let homeNavigationController = UINavigationController(rootViewController: homeViewController)
-        homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"),tag: 0)
+        homeNavigationController.setupBarAppearance()
+        homeNavigationController.topViewController?.title = "@toss"
+        homeNavigationController.tabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house.fill"),selectedImage: nil)
+        
+        
        
         
         
@@ -29,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarcontroller = UITabBarController()
         tabBarcontroller.viewControllers = [homeNavigationController]
-        
+        tabBarcontroller.tabBar.tintColor = .darkGray
         self.window?.rootViewController = tabBarcontroller
         self.window?.makeKeyAndVisible() // 메인이 윈도아가 되어 동작하게 해주는
    

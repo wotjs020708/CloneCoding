@@ -15,6 +15,7 @@
 		4B9DB4E22C453A33000E9E1D /* TossCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4E12C453A33000E9E1D /* TossCloneTests.swift */; };
 		4B9DB4EC2C453A33000E9E1D /* TossCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4EB2C453A33000E9E1D /* TossCloneUITests.swift */; };
 		4B9DB4EE2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4ED2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift */; };
+		4B9DB4FB2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4FA2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4B9DB4E72C453A33000E9E1D /* TossCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TossCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DB4EB2C453A33000E9E1D /* TossCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossCloneUITests.swift; sourceTree = "<group>"; };
 		4B9DB4ED2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4B9DB4FA2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+setupBarAppearance.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				4B9DB4CA2C453A31000E9E1D /* AppDelegate.swift */,
 				4B9DB4CC2C453A31000E9E1D /* SceneDelegate.swift */,
 				4B9DB4CE2C453A31000E9E1D /* HomeViewController.swift */,
+				4B9DB4FA2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift */,
 				4B9DB4D32C453A32000E9E1D /* Assets.xcassets */,
 				4B9DB4D52C453A32000E9E1D /* LaunchScreen.storyboard */,
 				4B9DB4D82C453A32000E9E1D /* Info.plist */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9DB4CF2C453A31000E9E1D /* HomeViewController.swift in Sources */,
+				4B9DB4FB2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift in Sources */,
 				4B9DB4CB2C453A31000E9E1D /* AppDelegate.swift in Sources */,
 				4B9DB4CD2C453A31000E9E1D /* SceneDelegate.swift in Sources */,
 			);

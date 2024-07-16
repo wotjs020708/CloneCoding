@@ -34,7 +34,6 @@ class MyViewController: UIViewController {
         barButton.tintColor = .black
         barButton.tag = 3
         return barButton
-        
     }()
     // MARK: - 개정 아이디
     private let idBarButtonItem: UIBarButtonItem  = {
