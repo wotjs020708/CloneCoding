@@ -90,12 +90,14 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             cell.configureCell(item: target)
             return cell
 
+
             
             
             
-//        case .account:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
-//            return cell
+        case .account:
+            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
+            cell.configureCell(item: target)
+            return cell
 //            
 //        case .expenditure:
 //            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! ExpenditureTableViewCell
