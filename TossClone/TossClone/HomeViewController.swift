@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     // tableView 생성
     
     private var tableView: UITableView = {
-        let tableview = UITableView()
+        let tableview = UITableView(frame: .zero, style: .insetGrouped)
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
         
@@ -42,8 +42,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(TossBankTableViewCell.self, forCellReuseIdentifier: TossBankTableViewCell.cellId)
+        self.tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.cellId)
         self.view.backgroundColor = .systemBackground
         addSubView()
+        self.tableView.separatorStyle = .none
         self.tableView.dataSource = self
         self.tableView.delegate = self
         NSLayoutConstraint.activate([
@@ -89,11 +91,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! TossBankTableViewCell
             cell.configureCell(item: target)
             return cell
-
-
-            
-            
-            
+       
         case .account:
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
             cell.configureCell(item: target)
@@ -106,6 +104,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         }
      
     }
+
     
     
 }
