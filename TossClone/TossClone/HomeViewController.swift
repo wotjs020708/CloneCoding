@@ -43,11 +43,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.register(TossBankTableViewCell.self, forCellReuseIdentifier: TossBankTableViewCell.cellId)
         self.tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.cellId)
+        self.tableView.register(ExpenditureTableViewCell.self, forCellReuseIdentifier: ExpenditureTableViewCell.cellId)
         self.view.backgroundColor = .systemBackground
         addSubView()
         self.tableView.separatorStyle = .none
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.rowHeight = UITableView.automaticDimension
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
@@ -55,8 +57,8 @@ class HomeViewController: UIViewController {
             self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
             
         ])
-    
-
+        
+        
     }
     
     //MARK: - addView
@@ -79,32 +81,28 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     } // 셀 숫자
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let target = list[indexPath.section].items[indexPath.row]// 셀에 표시할 데이터를 가져옴
-        
-        
-        
-        
-        
-        
+        let target = list[indexPath.section].items[indexPath.row] // 셀에 표시할 데이터를 가져옴
         switch target.type { // 타입별로 값을 설정
         case .tossBank:
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! TossBankTableViewCell
             cell.configureCell(item: target)
+            cell.selectionStyle = .none
             return cell
-       
+            
         case .account:
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
             cell.configureCell(item: target)
+            cell.selectionStyle = .none
             return cell
-//            
-//        case .expenditure:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! ExpenditureTableViewCell
-//            return cell
             
+            
+        case .expenditure:
+            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! ExpenditureTableViewCell
+            cell.configureCell(item: target)
+            cell.selectionStyle = .none
+            return cell
         }
-     
     }
-
     
     
 }

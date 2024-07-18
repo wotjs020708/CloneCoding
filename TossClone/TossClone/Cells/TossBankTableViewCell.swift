@@ -8,26 +8,44 @@
 import UIKit
 
 class TossBankTableViewCell: UITableViewCell {
+    
+    
     static let cellId = CellType.tossBank.rawValue
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "Title"
-        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
     
+    
+    private lazy var rightImageView: UIImageView  = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .systemGray
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(titleLabel)
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        let safeArea = self.safeAreaLayoutGuide
+        self.contentView.addSubview(titleLabel)
+        self.contentView.addSubview(rightImageView)
+     
+        let safeArea = self.contentView.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+            titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor,constant: 25),
+            titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
+            titleLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -25),
+
+
+            rightImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -25),
+            rightImageView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+           
             
 
         ])
