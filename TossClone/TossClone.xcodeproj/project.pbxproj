@@ -16,6 +16,10 @@
 		4B9DB4EC2C453A33000E9E1D /* TossCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4EB2C453A33000E9E1D /* TossCloneUITests.swift */; };
 		4B9DB4EE2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4ED2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift */; };
 		4B9DB4FB2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4FA2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift */; };
+		4BEAE1622C490C71009446A5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEAE1612C490C71009446A5 /* Model.swift */; };
+		4BEAE1642C492751009446A5 /* TossBankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEAE1632C492751009446A5 /* TossBankTableViewCell.swift */; };
+		4BEAE1662C492EE5009446A5 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEAE1652C492EE5009446A5 /* AccountTableViewCell.swift */; };
+		4BEAE16A2C492F2D009446A5 /* ExpenditureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEAE1692C492F2D009446A5 /* ExpenditureTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		4B9DB4EB2C453A33000E9E1D /* TossCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossCloneUITests.swift; sourceTree = "<group>"; };
 		4B9DB4ED2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4B9DB4FA2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+setupBarAppearance.swift"; sourceTree = "<group>"; };
+		4BEAE1612C490C71009446A5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4BEAE1632C492751009446A5 /* TossBankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossBankTableViewCell.swift; sourceTree = "<group>"; };
+		4BEAE1652C492EE5009446A5 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		4BEAE1692C492F2D009446A5 /* ExpenditureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpenditureTableViewCell.swift; path = TossClone/Cells/ExpenditureTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,10 @@
 			children = (
 				4B9DB4CA2C453A31000E9E1D /* AppDelegate.swift */,
 				4B9DB4CC2C453A31000E9E1D /* SceneDelegate.swift */,
-				4B9DB4CE2C453A31000E9E1D /* HomeViewController.swift */,
 				4B9DB4FA2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift */,
+				4B9DB4CE2C453A31000E9E1D /* HomeViewController.swift */,
+				4BEAE1682C492EF0009446A5 /* Models */,
+				4BEAE1672C492EEB009446A5 /* Cells */,
 				4B9DB4D32C453A32000E9E1D /* Assets.xcassets */,
 				4B9DB4D52C453A32000E9E1D /* LaunchScreen.storyboard */,
 				4B9DB4D82C453A32000E9E1D /* Info.plist */,
@@ -125,6 +135,24 @@
 				4B9DB4ED2C453A33000E9E1D /* TossCloneUITestsLaunchTests.swift */,
 			);
 			path = TossCloneUITests;
+			sourceTree = "<group>";
+		};
+		4BEAE1672C492EEB009446A5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4BEAE1692C492F2D009446A5 /* ExpenditureTableViewCell.swift */,
+				4BEAE1652C492EE5009446A5 /* AccountTableViewCell.swift */,
+				4BEAE1632C492751009446A5 /* TossBankTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4BEAE1682C492EF0009446A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4BEAE1612C490C71009446A5 /* Model.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BEAE1622C490C71009446A5 /* Model.swift in Sources */,
+				4BEAE16A2C492F2D009446A5 /* ExpenditureTableViewCell.swift in Sources */,
 				4B9DB4CF2C453A31000E9E1D /* HomeViewController.swift in Sources */,
+				4BEAE1642C492751009446A5 /* TossBankTableViewCell.swift in Sources */,
 				4B9DB4FB2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift in Sources */,
+				4BEAE1662C492EE5009446A5 /* AccountTableViewCell.swift in Sources */,
 				4B9DB4CB2C453A31000E9E1D /* AppDelegate.swift in Sources */,
 				4B9DB4CD2C453A31000E9E1D /* SceneDelegate.swift in Sources */,
 			);

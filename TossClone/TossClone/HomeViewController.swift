@@ -8,32 +8,16 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    // MARK: Scrollview
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemBackground
-        
-        return scrollView
-    }()
-    // TODO: 토스뱅크
-    private let tossBankButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        config.baseBackgroundColor = .darkGray
-        var titleAttr = AttributedString.init("토스뱅크")
-        titleAttr.font = .systemFont(ofSize: 40, weight: .bold)
-        config.attributedTitle = titleAttr
-        
-        config.image = UIImage(systemName: "chevron.right")
-        config.imagePadding = 10
-        config.imagePlacement = .trailing
-        
-        let button = UIButton(configuration: config)
-        return button
-        
+    let list = ListSection.generateData()
+    // tableView 생성
+    
+    private var tableView: UITableView = {
+        let tableview = UITableView()
+        tableview.translatesAutoresizingMaskIntoConstraints = false
+        return tableview
         
     }()
-    // TODO: 계좌 리스트
+    
     
     // MARK:  위치
     private let locationBarButtonItem: UIBarButtonItem  = {
@@ -56,39 +40,73 @@ class HomeViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        self.tableView.register(TossBankTableViewCell.self, forCellReuseIdentifier: TossBankTableViewCell.cellId)
         self.view.backgroundColor = .systemBackground
         addSubView()
-        setupView()
-        
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        NSLayoutConstraint.activate([
+            self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            
+        ])
+    
+
     }
     
     //MARK: - addView
     func addSubView() {
-        self.view.addSubview(self.scrollView)
         self.navigationItem.rightBarButtonItems = [bellBarButtonItem, locationBarButtonItem]
-        self.scrollView.addSubview(self.tossBankButton)
+        self.view.addSubview(tableView)
     }
     
-    //MARK: - setupView
-    
-    func setupView() {
-        NSLayoutConstraint.activate([
-            self.scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            self.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            self.scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            self.tossBankButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            self.tossBankButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.tossBankButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-        ])
-        
-    }
 }
 
 
+extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return list.count
+    } // 섹션 숫자
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list[section].items.count
+    } // 셀 숫자
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let target = list[indexPath.section].items[indexPath.row]// 셀에 표시할 데이터를 가져옴
+        
+        
+        
+        
+        
+        
+        switch target.type { // 타입별로 값을 설정
+        case .tossBank:
+            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! TossBankTableViewCell
+            cell.configureCell(item: target)
+            return cell
 
+            
+            
+            
+//        case .account:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
+//            return cell
+//            
+//        case .expenditure:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! ExpenditureTableViewCell
+//            return cell
+            
+        }
+     
+    }
+    
+    
+}
+#Preview(body: {
+    UINavigationController(rootViewController: HomeViewController())
+})
