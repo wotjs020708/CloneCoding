@@ -15,9 +15,10 @@ extension UINavigationController {
                                                       vertical: 0)
         appearance.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 40),
                                                   .foregroundColor: UIColor.darkGray]
+        appearance.backgroundColor = .systemBackground
+        navigationBar.scrollEdgeAppearance = appearance
         navigationBar.standardAppearance = appearance
         navigationBar.compactAppearance = appearance
-        navigationBar.scrollEdgeAppearance = appearance
 
     }
 }
