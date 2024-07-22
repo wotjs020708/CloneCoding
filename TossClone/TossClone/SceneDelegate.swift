@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         homeNavigationController.topViewController?.title = "@toss"
         homeNavigationController.tabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house.fill"),selectedImage: nil)
         
-        
        
         
         

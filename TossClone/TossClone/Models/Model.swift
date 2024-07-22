@@ -12,6 +12,7 @@ enum CellType: String {
     case tossBank
     case account
     case expenditure
+    case creditScore
 }
 
 struct ListItem {
@@ -32,7 +33,8 @@ struct ListSection{
                                 ListItem(title: "카카오뱅크 통장", subTitle: "0", rightButton: "송금", type: .account, imageName: "KaKaoBank"),
                                 ListItem(title: "토스뱅크에 쌓인 이자", subTitle: "19", rightButton: "지금 받기", type: .account, imageName: nil),
                                 ListItem(title: "IBK뱅크 통장", subTitle: "0", rightButton: "송금", type: .account, imageName: "IBKBank")]),
-            ListSection(items: [ListItem(title: "7월에 쓴돈", subTitle: "0", rightButton: "내역", type: .expenditure, imageName: nil)])
+            ListSection(items: [ListItem(title: "7월에 쓴돈", subTitle: "0", rightButton: "내역", type: .expenditure, imageName: nil)]),
+            ListSection(items: [ListItem(title: "내 신용점수", subTitle: nil, rightButton: nil, type: .creditScore, imageName: nil)])
         ]
     }
     

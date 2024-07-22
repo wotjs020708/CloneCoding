@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1DC9AC2C4E4311009AA8F3 /* CreditScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DC9AB2C4E4311009AA8F3 /* CreditScoreTableViewCell.swift */; };
 		4B9DB4CB2C453A31000E9E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4CA2C453A31000E9E1D /* AppDelegate.swift */; };
 		4B9DB4CD2C453A31000E9E1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4CC2C453A31000E9E1D /* SceneDelegate.swift */; };
 		4B9DB4CF2C453A31000E9E1D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DB4CE2C453A31000E9E1D /* HomeViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B1DC9AB2C4E4311009AA8F3 /* CreditScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditScoreTableViewCell.swift; sourceTree = "<group>"; };
 		4B9DB4C72C453A31000E9E1D /* TossClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TossClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DB4CA2C453A31000E9E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B9DB4CC2C453A31000E9E1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				4BEAE1692C492F2D009446A5 /* ExpenditureTableViewCell.swift */,
 				4BEAE1652C492EE5009446A5 /* AccountTableViewCell.swift */,
 				4BEAE1632C492751009446A5 /* TossBankTableViewCell.swift */,
+				4B1DC9AB2C4E4311009AA8F3 /* CreditScoreTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				4BEAE16A2C492F2D009446A5 /* ExpenditureTableViewCell.swift in Sources */,
 				4B9DB4CF2C453A31000E9E1D /* HomeViewController.swift in Sources */,
 				4BEAE1642C492751009446A5 /* TossBankTableViewCell.swift in Sources */,
+				4B1DC9AC2C4E4311009AA8F3 /* CreditScoreTableViewCell.swift in Sources */,
 				4B9DB4FB2C454E16000E9E1D /* UINavigationController+setupBarAppearance.swift in Sources */,
 				4BEAE1662C492EE5009446A5 /* AccountTableViewCell.swift in Sources */,
 				4B9DB4CB2C453A31000E9E1D /* AppDelegate.swift in Sources */,

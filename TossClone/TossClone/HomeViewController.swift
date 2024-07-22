@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
         self.tableView.register(TossBankTableViewCell.self, forCellReuseIdentifier: TossBankTableViewCell.cellId)
         self.tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.cellId)
         self.tableView.register(ExpenditureTableViewCell.self, forCellReuseIdentifier: ExpenditureTableViewCell.cellId)
+        self.tableView.register(CreditScoreTableViewCell.self, forCellReuseIdentifier: CreditScoreTableViewCell.cellId)
         self.view.backgroundColor = .systemBackground
         addSubView()
         self.tableView.separatorStyle = .none
@@ -92,19 +93,29 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         case .account:
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
             cell.configureCell(item: target)
-            cell.selectionStyle = .none
+//            cell.selectionStyle = .none
             return cell
-            
-            
+      
         case .expenditure:
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! ExpenditureTableViewCell
             cell.configureCell(item: target)
             cell.selectionStyle = .none
             return cell
+    
+        case .creditScore:
+            let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! CreditScoreTableViewCell
+            cell.configureCell(item: target)
+            cell.selectionStyle = .none
+            return cell
+    
+            
         }
+        
+
     }
     
-    
+
+
 }
 #Preview(body: {
     UINavigationController(rootViewController: HomeViewController())
