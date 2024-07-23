@@ -93,7 +93,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         case .account:
             let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath) as! AccountTableViewCell
             cell.configureCell(item: target)
-//            cell.selectionStyle = .none
+            cell.selectionStyle = .none
             return cell
       
         case .expenditure:
