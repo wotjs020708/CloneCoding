@@ -11,9 +11,18 @@ class HomeViewController: UIViewController {
     let list = ListSection.generateData()
     // tableView 생성
     
-    private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableview = UITableView(frame: .zero, style: .insetGrouped)
         tableview.translatesAutoresizingMaskIntoConstraints = false
+        tableview.register(TossBankTableViewCell.self, forCellReuseIdentifier: TossBankTableViewCell.cellId)
+        tableview.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.cellId)
+        tableview.register(ExpenditureTableViewCell.self, forCellReuseIdentifier: ExpenditureTableViewCell.cellId)
+        tableview.register(CreditScoreTableViewCell.self, forCellReuseIdentifier: CreditScoreTableViewCell.cellId)
+        tableview.separatorStyle = .none
+        tableview.dataSource = self
+        tableview.delegate = self
+        tableview.rowHeight = UITableView.automaticDimension
+
         return tableview
         
     }()
@@ -39,39 +48,34 @@ class HomeViewController: UIViewController {
         return barButton
     }()
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(TossBankTableViewCell.self, forCellReuseIdentifier: TossBankTableViewCell.cellId)
-        self.tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.cellId)
-        self.tableView.register(ExpenditureTableViewCell.self, forCellReuseIdentifier: ExpenditureTableViewCell.cellId)
-        self.tableView.register(CreditScoreTableViewCell.self, forCellReuseIdentifier: CreditScoreTableViewCell.cellId)
+        setupView()
+        
+    }
+    
+    //MARK: - setupView
+    
+    func setupView() {
         self.view.backgroundColor = .systemBackground
-        addSubView()
-        self.tableView.separatorStyle = .none
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.rowHeight = UITableView.automaticDimension
+        self.navigationItem.rightBarButtonItems = [bellBarButtonItem, locationBarButtonItem]
+        self.view.addSubview(tableView)
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-            
         ])
-        
         
     }
     
-    //MARK: - addView
-    func addSubView() {
-        self.navigationItem.rightBarButtonItems = [bellBarButtonItem, locationBarButtonItem]
-        self.view.addSubview(tableView)
-    }
     
 }
 
 
 extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return list.count

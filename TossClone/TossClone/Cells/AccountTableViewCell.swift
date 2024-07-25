@@ -109,9 +109,7 @@ class AccountTableViewCell: UITableViewCell {
         if let imageName = item.imageName {
             accountImageView.image = UIImage(named: imageName)
         } else {
-            
             accountImageView.image = .init(systemName: "bolt.fill")
-            
         }
         rightButton.setTitle(item.rightButton, for: .normal)
         

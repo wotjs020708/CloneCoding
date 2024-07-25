@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// TODO: - extension 사용하기
 class CreditScoreTableViewCell: UITableViewCell {
     
     static let cellId = CellType.creditScore.rawValue
@@ -19,6 +19,8 @@ class CreditScoreTableViewCell: UITableViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
+    
+    
     
     private lazy var leftImageView: UIImageView  = {
         let imageView = UIImageView()
@@ -91,6 +93,7 @@ class CreditScoreTableViewCell: UITableViewCell {
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return button
     }()
+    
     private lazy var leftButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.title = "계좌개설"
@@ -100,6 +103,7 @@ class CreditScoreTableViewCell: UITableViewCell {
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return button
     }()
+    
     private lazy var centerButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.title = "카드발급"
@@ -144,7 +148,7 @@ class CreditScoreTableViewCell: UITableViewCell {
             bottomStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             bottomStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             bottomStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-
+            
         ])
     }
     

@@ -11,18 +11,19 @@ import UIKit
 class ExpenditureTableViewCell: UITableViewCell {
     static let cellId = CellType.expenditure.rawValue
     
-    let LogoimageSize: CGFloat = 40
+    let LogoImageSize: CGFloat = 40
     
     private lazy var accountImageView: UIImageView  = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "creditcard.trianglebadge.exclamationmark")
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemRed
-        imageView.layer.cornerRadius = LogoimageSize / 2
+        imageView.layer.cornerRadius = LogoImageSize / 2
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
@@ -31,6 +32,7 @@ class ExpenditureTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "SubTitle"
@@ -56,9 +58,12 @@ class ExpenditureTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+            setupView()
+    }
+                   
+    
+    func setupView() {
         self.contentView.layer.cornerRadius = 20
-        
         self.contentView.addSubview(accountImageView)
         let labelContainerView = UIView()
         labelContainerView.addSubview(titleLabel)
@@ -76,8 +81,8 @@ class ExpenditureTableViewCell: UITableViewCell {
             self.accountImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 25),
             self.accountImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,constant: 10),
             self.accountImageView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor,constant: -25),
-            self.accountImageView.widthAnchor.constraint(equalToConstant: LogoimageSize),
-            self.accountImageView.heightAnchor.constraint(equalToConstant: LogoimageSize),
+            self.accountImageView.widthAnchor.constraint(equalToConstant: LogoImageSize),
+            self.accountImageView.heightAnchor.constraint(equalToConstant: LogoImageSize),
             
             labelContainerView.leadingAnchor.constraint(equalTo: accountImageView.trailingAnchor, constant: 30),
             labelContainerView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
@@ -98,8 +103,8 @@ class ExpenditureTableViewCell: UITableViewCell {
             
             
         ])
+        
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -108,7 +113,6 @@ class ExpenditureTableViewCell: UITableViewCell {
         titleLabel.text = item.title
         subtitleLabel.text = "\(item.subTitle ?? "0") 원"
         rightButton.setTitle(item.rightButton, for: .normal)
-        
     }
     
 }

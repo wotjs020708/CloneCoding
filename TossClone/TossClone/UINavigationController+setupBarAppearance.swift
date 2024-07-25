@@ -21,5 +21,6 @@ extension UINavigationController {
         navigationBar.compactAppearance = appearance
 
     }
+
 }
 
